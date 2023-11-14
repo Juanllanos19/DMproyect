@@ -1,12 +1,17 @@
-WITH variables AS (
+WITH FechasRan AS (
+  SELECT MIN(EXTRACT(YEAR FROM date)) as start_year, MAX(EXTRACT(YEAR FROM date)) end_year
+  FROM `earthquakeproject.terremotos`
+),
+variables AS (
   SELECT
-    1950 AS start_year,
-    2023 AS end_year,
+    start_year,
+    end_year,
     -4.21 AS latitude_1,
     -79.53 AS longitude_1,
     12.66 AS latitude_2,
     -66.80 AS longitude_2,
     100 AS AreasSqr
+    FROM FechasRan
 ),
 years as(
   SELECT

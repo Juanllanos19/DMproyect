@@ -1,5 +1,5 @@
 WITH FechasRan AS (
-  MAX(EXTRACT(YEAR FROM date)) as end_year
+  SELECT MAX(EXTRACT(YEAR FROM date)) as end_year
   FROM `indigo-night-397214.earthquakeproject.terremotos`
 ),
 variables AS (

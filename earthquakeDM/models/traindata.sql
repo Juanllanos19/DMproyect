@@ -3,7 +3,7 @@ SELECT
   latitude_2,longitude_2,
   suma
 FROM
-  `indigo-night-397214.earthquakeproject.DepuradoTerremotos`
+  `indigo-night-397214.earthquakeproject.DepuradoTerremotosClas`
 WHERE
  year<=((SELECT MIN(year) as minyr
   FROM `indigo-night-397214.earthquakeproject.DepuradoTerremotos`)+((SELECT MAX(year) as maxyr

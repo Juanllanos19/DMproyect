@@ -8,4 +8,4 @@ SELECT
     ELSE 'Very High Risk'
   END AS risk_category
 FROM
-  `indigo-night-397214.earthquakeproject.DepuradoTerremotos`;
+  `indigo-night-397214.earthquakeproject.DepuradoTerremotos`

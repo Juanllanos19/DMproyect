@@ -1,6 +1,6 @@
 WITH FechasRan AS (
   SELECT MIN(EXTRACT(YEAR FROM date)) as start_year, MAX(EXTRACT(YEAR FROM date)) end_year
-  FROM `earthquakeproject.terremotos`
+  FROM `indigo-night-397214.earthquakeproject.terremotos`
 ),
 variables AS (
   SELECT
@@ -43,8 +43,8 @@ plantilla AS(
   FROM latitudes, longitudes, years
 )
 SELECT  year, latitude_1, longitude_1,
-  latitude_2,longitude_2, COUNT(*) as num, SUM(T.magnitudo) as sum
-from plantilla LEFT JOIN `earthquakeproject.terremotos` as T
+  latitude_2,longitude_2, COUNT(*) as num, SUM(COALESCE(T.magnitudo, 0)) as sum
+from plantilla LEFT JOIN `indigo-night-397214.earthquakeproject.terremotos` as T
 ON T.latitude>plantilla.latitude_1 AND T.latitude<plantilla.latitude_2 AND T.longitude>plantilla.longitude_1 AND T.longitude<plantilla.longitude_2 
 AND year= EXTRACT(YEAR FROM T.date)
 group by year, latitude_1, longitude_1, latitude_2, longitude_2

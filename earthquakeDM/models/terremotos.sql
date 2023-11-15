@@ -1,2 +1,2 @@
 SELECT *
-FROM 'earthquakeproject'.dataset
+FROM 'indigo-night-397214.earthquakeproject'.dataset
